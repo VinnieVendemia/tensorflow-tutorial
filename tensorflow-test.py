@@ -39,3 +39,20 @@ print(sess.run(adder_node, {a: [1,3], b: [2, 4]}))
 print("\n\n *** Make graph more complex by adding another operation *** \n\n")
 add_and_triple = adder_node * 3.
 print(sess.run(add_and_triple, {a: 3, b: 4.5}))
+
+
+# modify the graph to get new outputs with the same input 
+# Variables allow us to add trainable parameters
+W = tf.Variable([.3], tf.float32)
+b = tf.Variable([-.3], tf.float32)
+x = tf.placeholder(tf.float32)
+linear_model = W * x + b
+
+
+# Initialize all variables in a TensorFlow program
+init = tf.initialize_all_variables()
+sess.run(init)
+
+
+print("\n\n *** Evaluate linear_model for several values of x  *** \n\n")
+print(sess.run(linear_model, {x: [1,2,3,4]}))

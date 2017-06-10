@@ -74,3 +74,15 @@ fixb = tf.assign(b, [1.])
 sess.run([fixW, fixb])
 print('Loss value is now: ')
 print(sess.run(loss, {x:[1,2,3,4], y:[0,-1,-2,-3]}))
+
+
+print("\n\n *** TensorFlow produces derivatives given only a description of the model  *** \n\n")
+# Use optimizer, modify each variable accoring to magnitude of derivative of loss 
+optimizer = tf.train.GradientDescentOptimizer(0.01)
+train = optimizer.minimize(loss)
+
+
+sess.run(init) # reset values to incorrect defaults.
+for i in range(1000):
+  sess.run(train, {x:[1,2,3,4], y:[0,-1,-2,-3]})
+print(sess.run([W, b]))

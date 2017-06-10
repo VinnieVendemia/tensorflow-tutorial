@@ -56,3 +56,21 @@ sess.run(init)
 
 print("\n\n *** Evaluate linear_model for several values of x  *** \n\n")
 print(sess.run(linear_model, {x: [1,2,3,4]}))
+
+# standard loss model for linear regression 
+# Sum the squares of the deltas-(between current model and data)
+print("\n\n *** Standard Loss model for linear regression  *** \n\n")
+y = tf.placeholder(tf.float32)
+squared_deltas = tf.square(linear_model - y)
+loss = tf.reduce_sum(squared_deltas)
+print('Loss value: ')
+print(sess.run(loss, {x: [1,2,3,4], y:[0,-1,-2,-3]}))
+
+
+# Improve the loss value by assigning perfect values to W and b 
+print("\n\n *** Improve loss model by assigning perfect values  *** \n\n")
+fixW = tf.assign(W, [-1.])
+fixb = tf.assign(b, [1.])
+sess.run([fixW, fixb])
+print('Loss value is now: ')
+print(sess.run(loss, {x:[1,2,3,4], y:[0,-1,-2,-3]}))

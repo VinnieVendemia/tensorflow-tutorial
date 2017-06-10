@@ -31,3 +31,9 @@ Execute the code running:
 ```
 python tensorflow-test.py
 ```
+
+I would suggest deactivating warnings here: 
+
+```
+export TF_CPP_MIN_LOG_LEVEL=2
+```

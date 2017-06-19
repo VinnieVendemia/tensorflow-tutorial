@@ -18,3 +18,9 @@ x = tf.placeholder(tf.float32, [None, 784])
 # and even modified by the computation.
 W = tf.Variable(tf.zeros([784, 10]))
 b = tf.Variable(tf.zeros([10]))
+
+
+# OUR MODEL
+# Multiple x and W, add b, and finally 
+# apply the softmax expression
+y = tf.nn.softmax(tf.matmul(x, W) + b)

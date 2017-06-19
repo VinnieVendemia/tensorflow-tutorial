@@ -37,3 +37,7 @@ I would suggest deactivating warnings here:
 ```
 export TF_CPP_MIN_LOG_LEVEL=2
 ```
+
+## Resources 
+
+Visual Information Theory - [http://colah.github.io/posts/2015-09-Visual-Information/](http://colah.github.io/posts/2015-09-Visual-Information/)

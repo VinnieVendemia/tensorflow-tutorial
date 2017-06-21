@@ -61,3 +61,18 @@ tf.global_variables_initializer().run()
 for _ in range(1000):
   batch_xs, batch_ys = mnist.train.next_batch(100)
   sess.run(train_step, feed_dict={x: batch_xs, y_: batch_ys})
+
+
+# Evaluating the model
+# tf.argmax is a useful function to get the index of the highest entry in a 
+# tensor along some axis. tf.argmax(y,1) is the label our model thinks is the 
+# most likely for each input, tf.argmax(y_,1) is the correct label
+correct_prediction = tf.equal(tf.argmax(y,1), tf.argmax(y_,1))
+
+
+# correct_prediction is returned as a list of booleans, cast this list to 
+# floats and take the mean 
+accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))
+
+# Finally, ask for accuracy of test data
+print(sess.run(accuracy, feed_dict={x: mnist.test.images, y_: mnist.test.labels}))

@@ -5,6 +5,12 @@ Following the instructions [here](https://www.tensorflow.org/get_started/get_sta
 
 ## Setup
 
+Install tensorflow following [these instructions](https://www.tensorflow.org/install/install_mac).  I decided to follow the virtualenv instructions, as I found that to be the most useful.  You may also find it useful to setup an alias to startup your virtualenv, something like: 
+
+```
+alias tf-virtualenv="source ~/Path/to/dir/bin/activate"
+```
+
 [This](https://github.com/tensorflow/tensorflow/issues/5478) post helped solve some of my issues when getting setup on my mac.
 
 
